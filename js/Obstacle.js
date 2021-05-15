@@ -13,5 +13,6 @@ class Obstacle {
     draw() {
         fill(30, 240, 110);
         noStroke();
+        rect(this.x, this.y, this.width, this.height);
     }
 }

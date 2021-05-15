@@ -14,6 +14,12 @@ function setup() {
     createWelcome();
 
     player = new Player(100, 200);
+
+    for (let i = 0; i < STARTER_OBS.length; i++) {
+        obstacles.push(new Obstacle(STARTER_OBS[i].x, STARTER_OBS[i].y, STARTER_OBS[i].width, STARTER_OBS[i].height));
+    }
+
+    frameRate(40);
 }
 
 function draw() {
@@ -22,10 +28,18 @@ function draw() {
     background("#333");
 
     player.draw();
+
+    for (let i = 0; i < obstacles.length; i++) {
+        obstacles[i].draw();
+    }
 }
 
 function update() {
     player.update()
+
+    for (let i = 0; i < obstacles.length; i++) {
+        obstacles[i].update();
+    }
 }
 
 function createWelcome() {
