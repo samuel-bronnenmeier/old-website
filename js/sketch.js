@@ -9,7 +9,8 @@ function preload() {
 
 function setup() {
     canvas = createCanvas(900, 500);
-    canvas.parent("canvas");
+    canvas.parent("canvas-container");
+    canvas.position(0, 0);
 
     createWelcome();
 
@@ -44,7 +45,12 @@ function update() {
 
 function createWelcome() {
     let welcome = createDiv("Welcome to my site");
+    welcome.parent("canvas-container");
     welcome.style("font-size", "60px");
     welcome.style("color", "#8C8C8C8D");
-    welcome.position(width / 2, height / 2 - 20);
+    welcome.style("width", "100%");
+    welcome.style("position", "absolute");
+    welcome.style("left", width / 2 - 80 + "px");
+    welcome.style("top", height / 2 - 80 + "px");
+    welcome.style("white-space", "nowrap");
 }
