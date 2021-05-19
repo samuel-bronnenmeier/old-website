@@ -37,7 +37,7 @@ class Player {
     }
 
     draw() {
-        fill(30, 240, 130);
+        fill(30, 240, 110);
         noStroke();
         ellipse(this.pos.x, this.pos.y, PLAYER_RADIUS, PLAYER_RADIUS);
     }
