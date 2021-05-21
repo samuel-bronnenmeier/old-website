@@ -29,7 +29,7 @@ function setup() {
     obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX));
     obstacles.push(new Obstacle(800, Math.floor(PXheight / 12 * 3) * PX, PX, PX));
     obstacles.push(new Obstacle(1000, Math.floor(PXheight / 12 * 9) * PX, PX, PX));
-    obstacles.push(new Obstacle(width - 40, height - 40, PX, PX));
+    obstacles.push(new Obstacle(1200, height - 40, PX, PX));
 
     frameRate(40);
 }
