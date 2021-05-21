@@ -1,6 +1,9 @@
 let canvas;
 let player;
 
+let cwidth;
+let cheight;
+
 let obstacles = [];
 
 function preload() {
@@ -8,7 +11,13 @@ function preload() {
 }
 
 function setup() {
-    canvas = createCanvas(windowWidth - 200, windowHeight - 150);
+    cwidth = windowWidth - 200;
+    cheight = windowHeight - 110;
+    cheight -= cheight % PX;
+
+    PXheight = cheight / PX;
+
+    canvas = createCanvas(cwidth, cheight);
     canvas.parent("canvas-container");
     canvas.position(0, 0);
 
@@ -16,9 +25,11 @@ function setup() {
 
     player = new Player(100, 200);
 
-    for (let i = 0; i < STARTER_OBS.length; i++) {
-        obstacles.push(new Obstacle(STARTER_OBS[i].x, STARTER_OBS[i].y, STARTER_OBS[i].width, STARTER_OBS[i].height));
-    }
+    obstacles.push(new Obstacle(0, 0, PX, PX));
+    obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX));
+    obstacles.push(new Obstacle(800, Math.floor(PXheight / 12 * 3) * PX, PX, PX));
+    obstacles.push(new Obstacle(1000, Math.floor(PXheight / 12 * 9) * PX, PX, PX));
+    obstacles.push(new Obstacle(width - 40, height - 40, PX, PX));
 
     frameRate(40);
 }
@@ -26,7 +37,7 @@ function setup() {
 function draw() {
     update();
 
-    background("#33ff");
+    background("#333");
 
     player.draw();
 
@@ -50,7 +61,7 @@ function createWelcome() {
     welcome.style("color", "#8C8C8C8D");
     welcome.style("width", "100%");
     welcome.style("position", "absolute");
-    welcome.style("left", width / 2 - 80 + "px");
-    welcome.style("top", height / 2 - 80 + "px");
+    welcome.style("left", width / 2 - 250 + "px");
+    welcome.style("top", height / 2 - 40 + "px");
     welcome.style("white-space", "nowrap");
 }
