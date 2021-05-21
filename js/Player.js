@@ -7,6 +7,7 @@ class Player {
 
     update() {
         //update
+        //move
         switch (this.getRandomDir()) {
             case "up":
                 this.accy = -PLAYER_ACC;
@@ -17,7 +18,7 @@ class Player {
                 break;
 
             default:
-                console.log("error: player.update at switch statement in line 10");
+                console.log("error: Player.update");
                 break;
         }
 
