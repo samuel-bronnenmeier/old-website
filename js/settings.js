@@ -7,4 +7,5 @@ let STARTER_OBS = [
     {x: 400, y: 0, width: 40, height: 40},
     {x: 700, y: 400, width: 40, height: 40},
     {x: 880, y: 20, width: 40, height: 40},
+    {x: 900, y: 600, width: 40, height: 40}
 ];
