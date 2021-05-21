@@ -8,7 +8,7 @@ function preload() {
 }
 
 function setup() {
-    canvas = createCanvas(innerWidth - 200, innerHeight - 150);
+    canvas = createCanvas(windowWidth - 200, windowHeight - 150);
     canvas.parent("canvas-container");
     canvas.position(0, 0);
 
