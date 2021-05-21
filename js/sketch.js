@@ -26,7 +26,7 @@ function setup() {
 function draw() {
     update();
 
-    background("#333");
+    background("#33ff");
 
     player.draw();
 
