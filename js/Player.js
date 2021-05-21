@@ -18,7 +18,7 @@ class Player {
                 break;
 
             default:
-                console.log("error: Player.update");
+                console.log("ERROR: Player.update()");
                 break;
         }
 

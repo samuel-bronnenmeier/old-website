@@ -4,10 +4,11 @@ class Obstacle {
         this.y = y;
         this.width = width;
         this.height = height;
+        this.dead = false;
     }
 
     update() {
-        //move
+        this.x -= OBSTACLE_VEL;
     }
 
     draw() {

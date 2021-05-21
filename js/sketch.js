@@ -6,6 +6,10 @@ let cheight;
 
 let obstacles = [];
 
+let maxObs;
+
+let realmode = false;
+
 function preload() {
     //assets
 }
@@ -25,11 +29,12 @@ function setup() {
 
     player = new Player(100, 200);
 
-    obstacles.push(new Obstacle(0, 0, PX, PX));
+    //obstacles.push(new Obstacle(0, 0, PX, PX));
     obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX));
     obstacles.push(new Obstacle(800, Math.floor(PXheight / 12 * 3) * PX, PX, PX));
     obstacles.push(new Obstacle(1000, Math.floor(PXheight / 12 * 9) * PX, PX, PX));
     obstacles.push(new Obstacle(1200, height - 40, PX, PX));
+    maxObs = 4;
 
     frameRate(40);
 }
@@ -51,7 +56,33 @@ function update() {
 
     for (let i = 0; i < obstacles.length; i++) {
         obstacles[i].update();
+        if (obstacles[i].x < 0-40) {
+            obstacles.shift();
+            console.log(obstacles)
+        }
     }
+
+    if (obstacles.length < 14 && realmode || obstacles.length < 14 && frameCount % 50 == 0) {
+        obstacles.push(new Obstacle(width, Math.floor(random(PXheight)) * PX, PX, PX));
+    }
+
+    if (!realmode && frameCount > 5000) {
+        realmode = true;
+    }
+}
+
+function checkIntersection(r1, r2) {
+	if (r1.x >= r2.x + r2.width) {
+		return false;
+	} else if (r1.x + r1.width <= r2.x) {
+		return false;
+	} else if (r1.y >= r2.y + r2.height) {
+		return false;
+	} else if (r1.y + r1.height <= r2.y) {
+		return false;
+	} else {
+		return true;
+	}
 }
 
 function createWelcome() {
