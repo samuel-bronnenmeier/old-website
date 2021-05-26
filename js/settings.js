@@ -1,10 +1,10 @@
-let PLAYER_RADIUS = 25;
-let PLAYER_ACC = 0.5;
-let PLAYER_FRICTION = -0.12;
+//define the one, the only... PIXEL
+const PX = 40;
 
-let STARTER_OBS = [
-    {x: 0, y: 0, width: 40, height: 40},
-    {x: 400, y: 0, width: 40, height: 40},
-    {x: 700, y: 400, width: 40, height: 40},
-    {x: 880, y: 20, width: 40, height: 40},
-];
+//some player constants
+const PLAYER_RADIUS = 25;
+const PLAYER_ACC = 0.5;
+const PLAYER_FRICTION = -0.12;
+
+//obstacle constants
+const OBSTACLE_VEL = 3;

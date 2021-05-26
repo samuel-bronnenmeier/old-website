@@ -6,7 +6,7 @@ class Player {
     }
 
     update() {
-        //update
+        //move
         switch (this.getRandomDir()) {
             case "up":
                 this.accy = -PLAYER_ACC;
@@ -17,13 +17,14 @@ class Player {
                 break;
 
             default:
-                console.log("error: player.update at switch statement in line 10");
+                console.log("ERROR: Player.update()");
                 break;
         }
 
         this.accy += this.vely * PLAYER_FRICTION;
         this.vely += this.accy;
 
+        //stop it if stopping
         if (Math.abs(this.vely) < 0.1) {
             this.vely = 0;
         }
