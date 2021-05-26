@@ -6,10 +6,6 @@ let cheight;
 
 let obstacles = [];
 
-let maxObs;
-
-let realmode = false;
-
 function preload() {
     //assets
 }
@@ -75,28 +71,6 @@ function update() {
     if (obstacles.length < 11 && frameCount % 35 == 0) {
         obstacles.push(new Obstacle(width, Math.floor(random(PXheight - 1)) * PX, PX, PX, true));
     }
-
-    if (obstacles.length < 14 && realmode || obstacles.length < 14 && frameCount % 50 == 0) {
-        obstacles.push(new Obstacle(width, Math.floor(random(PXheight)) * PX, PX, PX));
-    }
-
-    if (!realmode && frameCount > 5000) {
-        realmode = true;
-    }
-}
-
-function checkIntersection(r1, r2) {
-	if (r1.x >= r2.x + r2.width) {
-		return false;
-	} else if (r1.x + r1.width <= r2.x) {
-		return false;
-	} else if (r1.y >= r2.y + r2.height) {
-		return false;
-	} else if (r1.y + r1.height <= r2.y) {
-		return false;
-	} else {
-		return true;
-	}
 }
 
 function checkIntersection(r1, r2) {
@@ -157,7 +131,3 @@ function createWelcome() {
     welcome.style("top", height / 2 - 40 + "px");
     welcome.style("white-space", "nowrap");
 }
-
-/*function createDisplayTooSmallMessage() {
-    let message = createDiv("If your display was bigger you could see")
-}*/
