@@ -131,7 +131,3 @@ function createWelcome() {
     welcome.style("top", height / 2 - 40 + "px");
     welcome.style("white-space", "nowrap");
 }
-
-/*function createDisplayTooSmallMessage() {
-    let message = createDiv("If your display was bigger you could see")
-}*/
