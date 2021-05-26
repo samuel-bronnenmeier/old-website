@@ -1,7 +1,10 @@
-let PX = 40;
+//define the one, the only... PIXEL
+const PX = 40;
 
-let PLAYER_RADIUS = 25;
-let PLAYER_ACC = 0.5;
-let PLAYER_FRICTION = -0.12;
+//some player constants
+const PLAYER_RADIUS = 25;
+const PLAYER_ACC = 0.5;
+const PLAYER_FRICTION = -0.12;
 
-let OBSTACLE_VEL = 3;
+//obstacle constants
+const OBSTACLE_VEL = 3;

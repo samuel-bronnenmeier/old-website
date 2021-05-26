@@ -6,7 +6,6 @@ class Player {
     }
 
     update() {
-        //update
         //move
         switch (this.getRandomDir()) {
             case "up":
@@ -25,6 +24,7 @@ class Player {
         this.accy += this.vely * PLAYER_FRICTION;
         this.vely += this.accy;
 
+        //stop it if stopping
         if (Math.abs(this.vely) < 0.1) {
             this.vely = 0;
         }
