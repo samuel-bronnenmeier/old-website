@@ -14,6 +14,7 @@ html, body {
     padding: 8px;
     margin: 0;
     border: 1px solid greenyellow;
+    text-align: center;
     z-index: 1;
 }
 
@@ -45,6 +46,31 @@ ul.navbar {
     font-weight: bold;
 }
 
+.support {
+    height: auto;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /*display: flex;
+    flex-direction: column;*/
+    z-index: 2;
+}
+
+.support a {
+    padding: 5px 5px;
+    float: right;
+    height: auto;
+    margin-top: auto;
+    text-decoration: none;
+}
+
+.support-element {
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+}
+
 #canvas-container {
     position: absolute;
     left: 100px;
@@ -63,6 +89,14 @@ canvas {
 }
 
 @media only screen and (max-width: 300px), screen and (max-height: 300px) {
+    #head {
+        width: 100%;
+    }
+
+    .navbar li {
+        width: 100%;
+    }
+
     canvas {
         display: none;
     }
