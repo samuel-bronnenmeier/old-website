@@ -1,20 +1,33 @@
-html, body {
-    font-family: Arial, Helvetica, sans-serif;
+* {
     padding: 0;
     margin: 0;
+}
+
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
     background-color: #333;
     z-index: 0;
 }
 
-#head {
-    float: left;
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*border: 1px solid green;*/
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 30px;
+    font-size: 2.3em;
+    text-decoration: none;
     color: white;
     padding: 8px;
-    margin: 0;
+    margin: 0 0 0 .20em;
     border: 1px solid greenyellow;
-    text-align: center;
     z-index: 1;
 }
 
@@ -22,24 +35,22 @@ ul.navbar {
     list-style-type: none;
     overflow: hidden;
     z-index: 1;
-}
-
-.navbar li {
-    float: right;
+    display: flex;
+    /*border: 1px solid white;*/
 }
 
 .navbar li a {
     display: block;
     color: white;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 1em;
     text-decoration: none;
     font-size: 16px;
+    /*border: 1px solid rgb(248, 211, 1);*/
+    letter-spacing: .15rem;
 }
 
 .navbar li a:hover {
     color: greenyellow;
-    cursor: pointer;
 }
 
 .active {
@@ -52,59 +63,91 @@ ul.navbar {
     position: absolute;
     bottom: 0;
     right: 0;
-    /*display: flex;
-    flex-direction: column;*/
+    display: flex;
+    flex-direction: row-reverse;
     z-index: 2;
+    /*border: 1px solid white;*/
 }
 
 .support a {
     padding: 5px 5px;
-    float: right;
-    height: auto;
-    margin-top: auto;
+    align-self: flex-end;
+    justify-content: flex-end;
     text-decoration: none;
+    /*border: 1px solid yellow;*/
 }
 
 .support-element {
     color: white;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 #canvas-container {
     position: absolute;
     left: 100px;
     top: 100px;
+    /*border: 1px solid red;*/
+    display: block;
 }
 
 canvas {
     display: block;
+    /*border: 1px solid white;*/
 }
 
 #screenTooSmall {
+    position: relative;
     display: none;
     z-index: 1;
-    font-size: 12px;
+    font-size: 0.9em;
     color: white;
+    width: 99.5%;
+    text-align: center;
+    /*border: 1px solid white;*/
 }
 
-@media only screen and (max-width: 300px), screen and (max-height: 300px) {
-    #head {
+@media all and (max-width: 990px) {
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    ul.navbar {
         width: 100%;
+        justify-content: space-around;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .logo {
+        margin: .25em 0;
+        align-self: left;
     }
 
-    .navbar li {
-        width: 100%;
+    ul.navbar {
+        flex-direction: column;
     }
 
-    canvas {
-        display: none;
+    ul.navbar li a {
+        text-align: center;
+        padding: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.45);
     }
 
-    #welcome {
-        display: none;
+    ul.navbar li:last-of-type a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.45);
     }
 
+    #screenTooSmall {
+        display: block;
+    }
+}
+
+@media all and (max-height: 600px) {
     #screenTooSmall {
         display: block;
     }

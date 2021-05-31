@@ -1,8 +1,12 @@
 let canvas;
-let player;
+let population;
 
 let cwidth;
 let cheight;
+let PXwidth;
+let PXheight;
+
+let cthere;
 
 let obstacles = [];
 
@@ -13,14 +17,19 @@ function preload() {
 function setup() {
     //make it responsiv, ...
     cwidth = windowWidth - 200;
+    cwidth -= cwidth % PX;
     cheight = windowHeight - 110;
     cheight -= cheight % PX;
 
+    PXwidth = cwidth / PX;
     PXheight = cheight / PX;
 
-    if (PXheight < 4 || cwidth < 200) {
+    if (windowWidth < 600 || windowHeight < 600) {
+        cthere = false;
         remove();
     } else {
+        cthere = true;
+
         //initialize canvas
         canvas = createCanvas(cwidth, cheight);
         canvas.parent("canvas-container");
@@ -29,7 +38,7 @@ function setup() {
         //doing that letters that form a "welcome"
         createWelcome();
 
-        player = new Player(100, 200);
+        population = new Population(50);
 
         //do some starter obstacles
         obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX, false));
@@ -46,7 +55,7 @@ function draw() {
 
     background("#333");
 
-    player.draw();
+    population.draw();
 
     for (let i = 0; i < obstacles.length; i++) {
         obstacles[i].draw();
@@ -57,7 +66,7 @@ function update() {
     //check if game is over
     collisionDetection();
 
-    player.update();
+    population.update();
 
     //update obstacles; delete obstacles that are roo far out
     for (let i = 0; i < obstacles.length; i++) {
@@ -88,24 +97,29 @@ function checkIntersection(r1, r2) {
 }
 
 function collisionDetection() {
-    var rigidBody1 = {
-        x: player.pos.x - Math.floor(PLAYER_RADIUS / 2),
-        y: player.pos.y - Math.floor(PLAYER_RADIUS / 2),
-        width: PLAYER_RADIUS,
-        height: PLAYER_RADIUS
-    };
-    for (let i = 0; i < obstacles.length; i++) {
-        var rigidBody2 = {
-            x: obstacles[i].x,
-            y: obstacles[i].y,
-            width: obstacles[i].width,
-            height: obstacles[i].height
+    /*for (let i = 0; i < population.players.length; i++) {
+        var rigidBody1 = {
+            x: population.players[i].pos.x - Math.floor(PLAYER_RADIUS / 2),
+            y: population.players[i].pos.y - Math.floor(PLAYER_RADIUS / 2),
+            width: PLAYER_RADIUS,
+            height: PLAYER_RADIUS
         };
-        if (checkIntersection(rigidBody1, rigidBody2)) {
-            gameOver();
-            return;
+        for (let i = 0; i < obstacles.length; i++) {
+            var rigidBody2 = {
+                x: obstacles[i].x,
+                y: obstacles[i].y,
+                width: obstacles[i].width,
+                height: obstacles[i].height
+            };
+            if (checkIntersection(rigidBody1, rigidBody2)) {
+                //gameOver();
+                population.players[i].dead = true;
+                population.players[i].fitness = frameCount;
+                console.log("one is dead!!!")
+                return;
+            }
         }
-    }
+    }*/
 }
 
 function gameOver() {
@@ -130,4 +144,29 @@ function createWelcome() {
     welcome.style("left", width / 2 - 250 + "px");
     welcome.style("top", height / 2 - 40 + "px");
     welcome.style("white-space", "nowrap");
+}
+
+function windowResized() {
+    if (windowWidth < 600 || windowHeight < 600) {
+        cthere = false;
+        remove();
+    } else if (!cthere) {
+        //initialize canvas
+        canvas = createCanvas(cwidth, cheight);
+        canvas.parent("canvas-container");
+        canvas.position(0, 0);
+
+        //doing that letters that form a "welcome"
+        createWelcome();
+
+        player = new Player(100, 200);
+
+        //do some starter obstacles
+        obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX, false));
+        obstacles.push(new Obstacle(800, Math.floor(PXheight / 12 * 3) * PX, PX, PX, false));
+        obstacles.push(new Obstacle(1000, Math.floor(PXheight / 12 * 9) * PX, PX, PX, false));
+        obstacles.push(new Obstacle(1200, height - 40, PX, PX, false));
+
+        frameRate(40);
+    }
 }
