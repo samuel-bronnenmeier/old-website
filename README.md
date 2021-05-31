@@ -1,6 +1,7 @@
 # The AweSam
 - [General](#General)
 - [Libraries](#Libraries)
+- [Project Status](#ProjectStatus)
 *****************
 <a name="General"></a>
 ### General
@@ -14,3 +15,7 @@ Of course I'll add the "Projects"-,...side later.
 Made with p5.js
 
 Icons from fontawesome-free-5.15.3-web
+*****************
+<a name="ProjectStatus"></a>
+### Project Status
+Currently I'm working on the AI of the "Home"-page.
