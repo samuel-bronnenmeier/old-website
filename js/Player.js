@@ -1,13 +1,50 @@
 class Player {
     constructor(x, y) {
+        this.brain = new Brain();
+
+        this.dead = false;
+
+        this.fitness = 0;
+
         this.pos = createVector(x, y);
         this.vely = 0;
-        this.accy = PLAYER_ACC;
+        this.accy = 0;
+
+        this.isBest = false;
     }
 
     update() {
+        if (!this.dead) {
+            this.move();
+        } else {
+            console.log("this one didn't move")
+        }
+        var rigidBody1 = {
+            x: this.pos.x - Math.floor(PLAYER_RADIUS / 2),
+            y: this.pos.y - Math.floor(PLAYER_RADIUS / 2),
+            width: PLAYER_RADIUS,
+            height: PLAYER_RADIUS
+        };
+        for (let i = 0; i < obstacles.length; i++) {
+            var rigidBody2 = {
+                x: obstacles[i].x,
+                y: obstacles[i].y,
+                width: obstacles[i].width,
+                height: obstacles[i].height
+            };
+            if (checkIntersection(rigidBody1, rigidBody2)) {
+                //gameOver();
+                this.dead = true;
+                this.fitness = frameCount;
+                console.log("one is dead!!!")
+                return;
+            }
+        }
+    }
+
+    move() {
         //move
-        switch (this.getRandomDir()) {
+        switch (this.getDir()) {
             case "up":
                 this.accy = -PLAYER_ACC;
                 break;
@@ -17,7 +54,7 @@ class Player {
                 break;
 
             default:
-                console.log("ERROR: Player.update()");
+                this.accy = 0;
                 break;
         }
 
@@ -38,16 +75,30 @@ class Player {
     }
 
     draw() {
-        fill(30, 240, 110);
+        if (this.isBest) {
+            fill(230, 230, 230);
+        } else {
+            fill(30, 240, 110);
+        }
         noStroke();
         ellipse(this.pos.x, this.pos.y, PLAYER_RADIUS, PLAYER_RADIUS);
     }
 
-    getRandomDir() {
+    getDir() {
         let n = random();
         if (n > 0.5) {
             return "up";
         }
         return "down";
+    }
+
+    calculateFitness() {
+        this.fitness = this.fitness;
+    }
+
+    getBaby() {
+        let baby = new Player(100, 200);
+        baby.brain = this.brain.clone();
+        return baby;
     }
 }
