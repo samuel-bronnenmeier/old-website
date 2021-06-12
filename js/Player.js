@@ -16,40 +16,37 @@ class Player {
     update() {
         if (!this.dead) {
             this.move();
-        } else {
-            console.log("this one didn't move")
-        }
-        var rigidBody1 = {
-            x: this.pos.x - Math.floor(PLAYER_RADIUS / 2),
-            y: this.pos.y - Math.floor(PLAYER_RADIUS / 2),
-            width: PLAYER_RADIUS,
-            height: PLAYER_RADIUS
-        };
-        for (let i = 0; i < obstacles.length; i++) {
-            var rigidBody2 = {
-                x: obstacles[i].x,
-                y: obstacles[i].y,
-                width: obstacles[i].width,
-                height: obstacles[i].height
+            var rigidBody1 = {
+                x: this.pos.x - Math.floor(PLAYER_RADIUS / 2),
+                y: this.pos.y - Math.floor(PLAYER_RADIUS / 2),
+                width: PLAYER_RADIUS,
+                height: PLAYER_RADIUS
             };
-            if (checkIntersection(rigidBody1, rigidBody2)) {
-                //gameOver();
-                this.dead = true;
-                this.fitness = frameCount;
-                console.log("one is dead!!!")
-                return;
+            for (let i = 0; i < obstacles.length; i++) {
+                var rigidBody2 = {
+                    x: obstacles[i].x,
+                    y: obstacles[i].y,
+                    width: obstacles[i].width,
+                    height: obstacles[i].height
+                };
+                if (checkIntersection(rigidBody1, rigidBody2)) {
+                    //gameOver();
+                    this.dead = true;
+                    this.fitness = frameCount / 100;
+                    return;
+                }
             }
         }
     }
 
     move() {
         //move
-        switch (this.getDir()) {
-            case "up":
+        switch (this.brain.getDir()) {
+            case 1:
                 this.accy = -PLAYER_ACC;
                 break;
 
-            case "down":
+            case 0:
                 this.accy = PLAYER_ACC;
                 break;
 
@@ -67,10 +64,11 @@ class Player {
         }
 
         this.pos.y += this.vely + 0.5 * this.accy;
-        if (this.pos.y - PLAYER_RADIUS < 0) {
-            this.pos.y = 0 + PLAYER_RADIUS;
-        } else if (this.pos.y + PLAYER_RADIUS > height) {
-            this.pos.y = height - PLAYER_RADIUS;
+
+        if (this.pos.y - Math.floor(PLAYER_RADIUS / 2) < 0) {
+            this.pos.y = 0 + Math.floor(PLAYER_RADIUS / 2);
+        } else if (this.pos.y + Math.floor(PLAYER_RADIUS / 2) > height) {
+            this.pos.y = height - Math.floor(PLAYER_RADIUS / 2);
         }
     }
 

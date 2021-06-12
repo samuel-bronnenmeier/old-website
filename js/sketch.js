@@ -1,5 +1,7 @@
+let weightsJSON;
+
 let canvas;
-let population;
+var population;
 
 let cwidth;
 let cheight;
@@ -12,6 +14,20 @@ let obstacles = [];
 
 function preload() {
     //assets
+    /*try {
+        weightsJSON = loadJSON("assets/weights.json");
+    } catch (e) {*/
+        weightsJSON = {
+            y: 0.01,
+            vely: -0.1,
+            accy: -0.1,
+            obstaclesOnScreen: 0,
+            xNextObstacle: 0.01,
+            yNextObstacle: -0.05,
+            lastMove: -0.9,
+            bias: 0
+        }
+    //}
 }
 
 function setup() {
@@ -38,7 +54,7 @@ function setup() {
         //doing that letters that form a "welcome"
         createWelcome();
 
-        population = new Population(50);
+        population = new Population(10);
 
         //do some starter obstacles
         obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX, false));
@@ -66,9 +82,17 @@ function update() {
     //check if game is over
     collisionDetection();
 
-    population.update();
+    if (population.allPlayersDead()) {
+        population.calculateFitness();
+        population.naturalSelection();
+        population.mutate();
+        //console.log(population.players[2].brain);
+        gameOver();
+    } else {
+        population.update();
+    }
 
-    //update obstacles; delete obstacles that are roo far out
+    //update obstacles; delete obstacles that are too far out
     for (let i = 0; i < obstacles.length; i++) {
         obstacles[i].update();
         if (obstacles[i].x < 0-40) {
@@ -124,7 +148,7 @@ function collisionDetection() {
 
 function gameOver() {
     //pretty much simulating a reload
-    player = new Player(100, 200);
+    //player = new Player(100, 200);
 
     obstacles = [];
     obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX, false));
@@ -169,4 +193,8 @@ function windowResized() {
 
         frameRate(40);
     }
+}
+
+function mousePressed() {
+    saveJSON(population.players[0].brain.weights, "weights.json");
 }
