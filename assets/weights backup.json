@@ -1,0 +1,10 @@
+{
+  "y": 0.01,
+  "vely": -0.1,
+  "accy": -0.1,
+  "obstaclesOnScreen": 0,
+  "xNextObstacle": 0.01,
+  "yNextObstacle": -0.05,
+  "lastMove": -0.9,
+  "bias": 0
+}

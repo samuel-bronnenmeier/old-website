@@ -5,9 +5,10 @@ class Population {
         this.players = [];
         for (let i = 0; i < size; i++) {
             this.players[i] = new Player(100, 200);
-            this.players[i].brain.player = i;
-            console.log(this.players[i].brain.player);
+            //this.players[i].brain.player = i;
+            //console.log(this.players[i].brain.player);
         }
+        //console.log(this.players[2].brain.player);
 
         this.gen = 1;
         this.bestPlayer = 0;
@@ -37,16 +38,16 @@ class Population {
             if (!this.players[i].dead) {
                 return false;
             }
-            return true;
         }
+        return true;
     }
 
     naturalSelection() {
         let newPlayers = [];
-        this.setBestDot();
+        this.setBestPlayer();
         this.calculateFitnessSum();
 
-        newPlayers[0] = this.players[0].getBaby();
+        newPlayers[0] = this.players[this.bestPlayer].getBaby();
         newPlayers[0].isBest = true;
 
         for (let i = 1; i < this.players.length; i++) {
@@ -67,7 +68,7 @@ class Population {
     }
 
     selectParent() {
-        let rand = random() * this.fitnessSum;
+        let rand = Math.random() * this.fitnessSum;
 		
 		let runningSum = 0;
 		
@@ -78,7 +79,7 @@ class Population {
 			}
 			
 		}
-		//should never get there
+		//should never get here
 		return null;
     }
 
@@ -89,7 +90,7 @@ class Population {
         }
     }
 
-    setBestDot() {
+    setBestPlayer() {
         let max = 0;
         let maxIndex = 0;
 

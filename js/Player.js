@@ -11,37 +11,42 @@ class Player {
         this.accy = 0;
 
         this.isBest = false;
+        //console.log(this.brain.player);
     }
 
     update() {
         if (!this.dead) {
             this.move();
-            var rigidBody1 = {
-                x: this.pos.x - Math.floor(PLAYER_RADIUS / 2),
-                y: this.pos.y - Math.floor(PLAYER_RADIUS / 2),
-                width: PLAYER_RADIUS,
-                height: PLAYER_RADIUS
+            this.collisionDetection();
+        }
+    }
+
+    collisionDetection() {
+        var rigidBody1 = {
+            x: this.pos.x - Math.floor(PLAYER_RADIUS / 2),
+            y: this.pos.y - Math.floor(PLAYER_RADIUS / 2),
+            width: PLAYER_RADIUS,
+            height: PLAYER_RADIUS
+        };
+        for (let i = 0; i < obstacles.length; i++) {
+            var rigidBody2 = {
+                x: obstacles[i].x,
+                y: obstacles[i].y,
+                width: obstacles[i].width,
+                height: obstacles[i].height
             };
-            for (let i = 0; i < obstacles.length; i++) {
-                var rigidBody2 = {
-                    x: obstacles[i].x,
-                    y: obstacles[i].y,
-                    width: obstacles[i].width,
-                    height: obstacles[i].height
-                };
-                if (checkIntersection(rigidBody1, rigidBody2)) {
-                    //gameOver();
-                    this.dead = true;
-                    this.fitness = frameCount / 100;
-                    return;
-                }
+            if (checkIntersection(rigidBody1, rigidBody2)) {
+                //gameOver();
+                this.dead = true;
+                this.fitness = frameCount / 100;
+                return;
             }
         }
     }
 
     move() {
         //move
-        switch (this.brain.getDir()) {
+        switch (this.brain.getDir(this.pos.x, this.vely, this.accy)) {
             case 1:
                 this.accy = -PLAYER_ACC;
                 break;
@@ -59,9 +64,9 @@ class Player {
         this.vely += this.accy;
 
         //stop it if stopping
-        if (Math.abs(this.vely) < 0.1) {
+        /*if (Math.abs(this.vely) < 0.1) {
             this.vely = 0;
-        }
+        }*/
 
         this.pos.y += this.vely + 0.5 * this.accy;
 
@@ -82,16 +87,16 @@ class Player {
         ellipse(this.pos.x, this.pos.y, PLAYER_RADIUS, PLAYER_RADIUS);
     }
 
-    getDir() {
+    /*getDir() {
         let n = random();
         if (n > 0.5) {
             return "up";
         }
         return "down";
-    }
+    }*/
 
     calculateFitness() {
-        this.fitness = this.fitness;
+        //this.fitness = this.fitness;
     }
 
     getBaby() {

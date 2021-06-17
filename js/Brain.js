@@ -1,38 +1,40 @@
 class Brain {
     constructor() {
-        this.player = 2;
+        //this.player = 0;
 
         this.weights = {};
         this.getWeights();
 
         this.lastMove = 1;
         this.bias = 1;
+
+        //console.log(this.player);
     }
 
     getWeights() {
-        /*this.weights = {
-            y: this.randWeight(),
-            vely: this.randWeight(),
-            accy: this.randWeight(),
-            obstaclesOnScreen: this.randWeight(),
-            xNextObstacle: this.randWeight(),
-            yNextObstacle: this.randWeight(),
-            lastMove: this.randWeight(),
-            bias: this.randWeight()
-        }*/
-        this.weights = weightsJSON;
+        this.weights = {
+            y: weightsJSON.y,
+            vely: weightsJSON.vely,
+            accy: weightsJSON.accy,
+            obstaclesOnScreen: weightsJSON.obstaclesOnScreen,
+            xNextObstacle: weightsJSON.xNextObstacle,
+            yNextObstacle: weightsJSON.yNextObstacle,
+            lastMove: weightsJSON.lastMove,
+            bias: weightsJSON.bias
+        }
+        //this.weights = weightsJSON;
     }
 
-    randWeight() {
+    /*randWeight() {
         return random(-1, 1)
-    }
+    }*/
 
-    getDir() {
+    getDir(py, pvely, paccy) {
         let dir = 1;
 
-        let y = population.players[this.player].pos.y;
-        let vely = population.players[this.player].vely;
-        let accy = population.players[this.player].accy;
+        let y = py;
+        let vely = pvely;
+        let accy = paccy;
         let obstaclesOnScreen = obstacles.length;
         let xNextObstacle = obstacles[this.nextOb()].x;
         let yNextObstacle = obstacles[this.nextOb()].y;
@@ -61,7 +63,7 @@ class Brain {
                 this.lastMove = 1;
                 break;
 
-            case 2:
+            case 0:
                 this.lastMove = -1;
                 break;
         
@@ -96,15 +98,16 @@ class Brain {
 
         for (const weight in this.weights) {
             if (Object.hasOwnProperty.call(this.weights, weight)) {
-                let rand = random();
+                let rand = Math.random();
+
                 if (rand < mutationRate) {
-                    this.weights[weight] += random(-1, 1) * 0.1;
+                    this.weights[weight] += Math.random(-1, 1) * 0.01;
+
                     if (this.weights[weight] > 1) {
                         this.weights[weight] = 1;
                     } else if (this.weights[weight] < -1) {
                         this.weights[weight] = -1;
                     }
-                    console.log(weight, "from", this.player, "mutated");
                 }
             }
         }

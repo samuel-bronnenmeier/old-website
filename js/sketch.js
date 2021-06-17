@@ -1,3 +1,14 @@
+//define the one, the only... PIXEL
+let PX = 40;
+
+//some player constants
+let PLAYER_RADIUS = 25;
+let PLAYER_ACC = 0.5;
+let PLAYER_FRICTION = -0.12;
+
+//obstacle constants
+let OBSTACLE_VEL = 3;
+
 let weightsJSON;
 
 let canvas;
@@ -12,11 +23,22 @@ let cthere;
 
 let obstacles = [];
 
+/*weightsJSON = {
+    y: 0.01,
+    vely: -0.1,
+    accy: -0.1,
+    obstaclesOnScreen: 0,
+    xNextObstacle: 0.01,
+    yNextObstacle: -0.05,
+    lastMove: -0.9,
+    bias: 0
+}*/
+
 function preload() {
     //assets
     /*try {
-        weightsJSON = loadJSON("assets/weights.json");
-    } catch (e) {*/
+    */weightsJSON = loadJSON("assets/weights.json");/*
+    } catch (e) {
         weightsJSON = {
             y: 0.01,
             vely: -0.1,
@@ -27,7 +49,7 @@ function preload() {
             lastMove: -0.9,
             bias: 0
         }
-    //}
+    }*/
 }
 
 function setup() {
@@ -54,7 +76,7 @@ function setup() {
         //doing that letters that form a "welcome"
         createWelcome();
 
-        population = new Population(10);
+        population = new Population(900);
 
         //do some starter obstacles
         obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX, false));
@@ -86,7 +108,6 @@ function update() {
         population.calculateFitness();
         population.naturalSelection();
         population.mutate();
-        //console.log(population.players[2].brain);
         gameOver();
     } else {
         population.update();
