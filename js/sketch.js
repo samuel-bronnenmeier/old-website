@@ -23,7 +23,7 @@ let cthere;
 
 let obstacles = [];
 
-/*weightsJSON = {
+weightsJSON = {
     y: 0.01,
     vely: -0.1,
     accy: -0.1,
@@ -32,24 +32,14 @@ let obstacles = [];
     yNextObstacle: -0.05,
     lastMove: -0.9,
     bias: 0
-}*/
+}
 
 function preload() {
-    //assets
-    /*try {
-    */weightsJSON = loadJSON("assets/weights.json");/*
-    } catch (e) {
-        weightsJSON = {
-            y: 0.01,
-            vely: -0.1,
-            accy: -0.1,
-            obstaclesOnScreen: 0,
-            xNextObstacle: 0.01,
-            yNextObstacle: -0.05,
-            lastMove: -0.9,
-            bias: 0
-        }
-    }*/
+    if (window.location.href[0] == "h") {
+        weightsJSON = loadJSON("assets/weights.json");
+    } else {
+        console.log("couldn't load weights.json")
+    }
 }
 
 function setup() {
@@ -76,7 +66,7 @@ function setup() {
         //doing that letters that form a "welcome"
         createWelcome();
 
-        population = new Population(900);
+        population = new Population(1); //900
 
         //do some starter obstacles
         obstacles.push(new Obstacle(600, Math.floor(PXheight / 2) * PX, PX, PX, false));
@@ -216,6 +206,6 @@ function windowResized() {
     }
 }
 
-function mousePressed() {
+/*function mousePressed() {
     saveJSON(population.players[0].brain.weights, "weights.json");
-}
+}*/

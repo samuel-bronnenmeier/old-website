@@ -108,6 +108,29 @@ canvas {
     /*border: 1px solid white;*/
 }
 
+
+.a-box {
+    display: block;
+    background-color: white;
+    margin: 0.5em;
+    height: auto;
+}
+
+.a-text {
+    color: black;
+    font-size: 1em;
+    float: none;
+    margin: 0 1em;
+    padding: 1em 0;
+}
+
+.a-image {
+    clear: right;
+    float: left;
+    margin: 1em;
+}
+
+
 @media all and (max-width: 990px) {
     .flex-container {
         flex-direction: column;
@@ -145,6 +168,15 @@ canvas {
 
     #screenTooSmall {
         display: block;
+    }
+
+    .a-box {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .a-image {
+        align-self: center;
     }
 }
 
