@@ -78,11 +78,11 @@ class Player {
     }
 
     draw() {
-        if (this.isBest) {
+        /*if (this.isBest) {
             fill(230, 230, 230);
-        } else {
+        } else {*/
             fill(30, 240, 110);
-        }
+        //}
         noStroke();
         ellipse(this.pos.x, this.pos.y, PLAYER_RADIUS, PLAYER_RADIUS);
     }

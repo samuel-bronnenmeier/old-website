@@ -9,6 +9,7 @@ class Brain {
         this.bias = 1;
 
         //console.log(this.player);
+        this.mutate();
     }
 
     getWeights() {
