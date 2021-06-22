@@ -131,6 +131,14 @@ canvas {
 }
 
 
+.comingSoon {
+    color: white;
+    font-size: 1em;
+    margin: 1em;
+    padding: .5em;
+}
+
+
 @media all and (max-width: 990px) {
     .flex-container {
         flex-direction: column;
