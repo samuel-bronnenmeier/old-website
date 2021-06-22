@@ -38,7 +38,7 @@ function preload() {
     if (window.location.href[0] == "h") {
         weightsJSON = loadJSON("assets/weights.json");
     } else {
-        console.log("couldn't load weights.json")
+        console.log("failed to load weights.json")
     }
 }
 
