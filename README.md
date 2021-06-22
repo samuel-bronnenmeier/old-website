@@ -6,10 +6,9 @@
 <a name="General"></a>
 ### General
 Here is my website.
-The "Home"-page is pretty much finished.
-Teh "About"-page is going to be done soon.
+You can clearly see it is not finished yet.
 
-All the other sites will come bit by bit.
+All sites will come bit by bit.
 *****************
 <a name="Libraries"></a>
 ### Libraries
