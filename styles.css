@@ -130,6 +130,25 @@ canvas {
     margin: 1em;
 }
 
+.d-box {
+    display: block;
+    background-color: white;
+    margin: 0.5em;
+    padding: 3em;
+}
+
+.d-a {
+    color: black;
+    font-size: 1em;
+    margin: 0 1em;
+    padding: 1em 0;
+    text-decoration: none;
+}
+
+.d-a:hover {
+    text-decoration: underline;
+    color: rgba(132, 204, 25, 0.89);
+}
 
 .comingSoon {
     color: white;
