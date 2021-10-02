@@ -130,11 +130,9 @@ canvas {
     margin: 1em;
 }
 
-.d-box {
-    display: block;
+.d-item {
     background-color: white;
-    margin: 0.5em;
-    padding: 3em;
+    padding: 2em;
 }
 
 .d-a {
@@ -150,11 +148,18 @@ canvas {
     color: rgba(132, 204, 25, 0.89);
 }
 
+.d-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
 .comingSoon {
     color: white;
     font-size: 1em;
-    margin: 1em;
-    padding: .5em;
+    padding: 2em;
 }
 
 
@@ -170,6 +175,15 @@ canvas {
     ul.navbar {
         width: 100%;
         justify-content: space-around;
+    }
+
+    .d-container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .d-item {
+        width: 100%;
     }
 }
 
