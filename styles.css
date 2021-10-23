@@ -1,3 +1,33 @@
+/*!
+ * By @theawesam - https://theawesam-hub.github.io
+ * 
+ * License - MIT License
+ * 
+ * Copyright (c) 2021 Samuel Bronnenmeier
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+
+/*
+----------All----------
+*/
 * {
     padding: 0;
     margin: 0;
@@ -14,6 +44,7 @@ html, body {
     justify-content: space-between;
     align-items: center;
     /*border: 1px solid green;*/
+    margin-top: 4px;
 }
 
 a {
@@ -24,10 +55,14 @@ a {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2.3em;
     text-decoration: none;
-    color: white;
-    padding: 8px;
+    /*color: rgb(163, 101, 226);*/
+    color: rgb(56, 21, 78);
+    /*color: black;*/
+    /*background-color: rgb(243, 243, 243);*/
+    padding: 9px;
     margin: 0 0 0 .20em;
-    border: 1px solid greenyellow;
+    text-shadow: 0px 0px 20px rgb(233, 233, 233), 0px 0px 10px rgb(190, 190, 190);
+    /*box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.5), 0 6px 20px 0 rgba(255, 255, 255, 0.48);*/
     z-index: 1;
 }
 
@@ -57,6 +92,10 @@ ul.navbar {
     font-weight: bold;
 }
 
+/*
+----------Home----------
+*/
+
 .support {
     height: auto;
     width: 100%;
@@ -66,7 +105,7 @@ ul.navbar {
     display: flex;
     flex-direction: row-reverse;
     z-index: 2;
-    /*border: 1px solid white;*/
+    /*border: 1px solid rgb(0, 0, 255);*/
 }
 
 .support a {
@@ -108,6 +147,9 @@ canvas {
     /*border: 1px solid white;*/
 }
 
+/*
+----------About----------
+*/
 
 .a-box {
     display: block;
@@ -130,30 +172,54 @@ canvas {
     margin: 1em;
 }
 
-.d-item {
-    background-color: white;
-    padding: 2em;
-}
-
-.d-a {
-    color: black;
-    font-size: 1em;
-    margin: 0 1em;
-    padding: 1em 0;
-    text-decoration: none;
-}
-
-.d-a:hover {
-    text-decoration: underline;
-    color: rgba(132, 204, 25, 0.89);
-}
+/*
+----------Downloads----------
+*/
 
 .d-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
+    /*border: 1px solid purple;*/
+    width: auto;
+    margin-top: 10px;
+}
+
+div.d-item {
+    /*box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);*/
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: auto;
+    border: 1px solid greenyellow;
+    width: auto;
+}
+
+/*div.d-item img.thumbnail-img {
+    width: 100%;
+    border: 1px solid white;
+}*/
+
+div.d-item div.d-description {
+    color: black;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid blue;
+}
+
+a.d-title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+a.d-title:hover {
+    color: rgba(132, 204, 25);
 }
 
 .comingSoon {
@@ -162,7 +228,9 @@ canvas {
     padding: 2em;
 }
 
-
+/*
+----------Responsive----------
+*/
 @media all and (max-width: 990px) {
     .flex-container {
         flex-direction: column;
@@ -218,6 +286,10 @@ canvas {
 
     .a-image {
         align-self: center;
+    }
+
+    .d-item {
+        flex-direction: column;
     }
 }
 
