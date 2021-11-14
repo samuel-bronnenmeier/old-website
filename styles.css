@@ -82,10 +82,20 @@ ul.navbar {
     font-size: 16px;
     /*border: 1px solid rgb(248, 211, 1);*/
     letter-spacing: .15rem;
+    transition: background-color 0.7s, color 0.7s, transform 0.2s ease;
 }
 
 .navbar li a:hover {
+    background-color: rgb(68, 68, 68);
     color: greenyellow;
+}
+
+.navbar li a:active {
+    transform: scale(1.1);
+}
+
+.navbar li:first-of-type a {
+    border-radius: 5px 0 0 5px;
 }
 
 .active {
@@ -182,7 +192,7 @@ canvas {
     justify-content: space-between;
     align-content: space-between;
     /*border: 1px solid purple;*/
-    width: auto;
+    /*width: auto;*/
     margin-top: 10px;
 }
 
@@ -194,31 +204,39 @@ div.d-item {
     justify-content: space-between;
     align-content: space-between;
     margin: auto;
-    border: 1px solid greenyellow;
+    /*border: 1px solid greenyellow;*/
     width: auto;
+    margin-top: 15em;
 }
 
-/*div.d-item img.thumbnail-img {
-    width: 100%;
-    border: 1px solid white;
-}*/
+div.d-item:first-of-type {
+    margin-top: 5em;
+}
 
 div.d-item div.d-description {
-    color: black;
+    color: rgb(202, 202, 202);
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
+    margin-left: 10px;
 }
 
-a.d-title {
+div.d-title {
+    font-size: 2em;
+    /*border: 1px solid yellowgreen;*/
+    display: block;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+a.d-title-link {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
-    font-size: 2em;
 }
 
-a.d-title:hover {
+a.d-title-link:hover {
     color: rgba(132, 204, 25);
 }
 
@@ -226,6 +244,7 @@ a.d-title:hover {
     color: white;
     font-size: 1em;
     padding: 2em;
+    margin-top: 4em;
 }
 
 /*
@@ -250,8 +269,12 @@ a.d-title:hover {
         width: 100%;
     }
 
-    .d-item {
-        width: 100%;
+    div.d-item {
+        margin-top: 10px;
+    }
+
+    div.d-description {
+        margin-left: 0;
     }
 }
 
@@ -271,6 +294,10 @@ a.d-title:hover {
         border-top: 1px solid rgba(255, 255, 255, 0.45);
     }
 
+    ul.navbar li:first-of-type a {
+        border-radius: 0;
+    }
+
     ul.navbar li:last-of-type a {
         border-bottom: 1px solid rgba(255, 255, 255, 0.45);
     }
@@ -288,7 +315,7 @@ a.d-title:hover {
         align-self: center;
     }
 
-    .d-item {
+    div.d-item {
         flex-direction: column;
     }
 }
