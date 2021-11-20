@@ -1,6 +1,13 @@
 {
     "version":"1",
     "title":"TicTacToe",
-    "imgPaths":"https://theawesam-hub.github.io/img/gameplayScreenshot.png",
-    "descriptionText":"This is a fun little game. As simple as the rules are, it leaves room for much strategy. Even the Romans played the game - although I don't know if they invented it ;)<br><br>This is actually the very first real game I've made, so don't be too strict with me."
+    "imgPaths":[
+        "https://theawesam-hub.github.io/img/gameplayScreenshot.png"
+    ],
+    "descriptionText":"This is a fun little game. As simple as the rules are, it leaves room for much strategy. Even the Romans played the game - although I don't know if they invented it ;)<br><br>This is actually the very first real game I've made, so don't be too strict with me.",
+    "officialTitle":"TicTacToe",
+    "appVersion":"1.0.1",
+    "operatingSystem":"Windows OS 32-/64-bit",
+    "author":"The AweSam",
+    "price":"free"
 }

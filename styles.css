@@ -82,16 +82,17 @@ ul.navbar {
     font-size: 16px;
     /*border: 1px solid rgb(248, 211, 1);*/
     letter-spacing: .15rem;
-    transition: background-color 0.7s, color 0.7s, transform 0.2s ease;
+    transition: background-color 0.6s, color 0.6s, transform 0.3s ease;
 }
 
 .navbar li a:hover {
     background-color: rgb(68, 68, 68);
     color: greenyellow;
+    /*transform: scale(1.1);*/
 }
 
 .navbar li a:active {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .navbar li:first-of-type a {
@@ -100,6 +101,18 @@ ul.navbar {
 
 .active {
     font-weight: bold;
+}
+
+a.a-std-intern-inline {
+    text-decoration: none;
+    color: greenyellow;
+    display: inline;
+    cursor: pointer;
+}
+
+a.a-std-intern-inline:hover {
+    border-bottom: greenyellow dashed 2px;
+    padding-bottom: 1px;
 }
 
 /*
@@ -206,7 +219,7 @@ div.d-item {
     margin: auto;
     /*border: 1px solid greenyellow;*/
     width: auto;
-    margin-top: 15em;
+    margin-bottom: 13em;
 }
 
 div.d-item:first-of-type {
@@ -244,7 +257,7 @@ a.d-title-link:hover {
     color: white;
     font-size: 1em;
     padding: 2em;
-    margin-top: 4em;
+    margin-top: 2em;
 }
 
 /*
@@ -276,6 +289,10 @@ a.d-title-link:hover {
     div.d-description {
         margin-left: 0;
     }
+
+    ul.navbar li:first-of-type a {
+        border-radius: 0;
+    }
 }
 
 @media all and (max-width: 600px) {
@@ -292,10 +309,6 @@ a.d-title-link:hover {
         text-align: center;
         padding: 10px;
         border-top: 1px solid rgba(255, 255, 255, 0.45);
-    }
-
-    ul.navbar li:first-of-type a {
-        border-radius: 0;
     }
 
     ul.navbar li:last-of-type a {
