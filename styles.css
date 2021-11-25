@@ -56,12 +56,12 @@ a {
     font-size: 2.3em;
     text-decoration: none;
     /*color: rgb(163, 101, 226);*/
-    color: rgb(56, 21, 78);
+    color: #B67FAC;
     /*color: black;*/
     /*background-color: rgb(243, 243, 243);*/
     padding: 9px;
     margin: 0 0 0 .20em;
-    text-shadow: 0px 0px 20px rgb(233, 233, 233), 0px 0px 10px rgb(190, 190, 190);
+    /*text-shadow: 0px 0px 20px rgb(233, 233, 233), 0px 0px 10px rgb(190, 190, 190);*/
     /*box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.5), 0 6px 20px 0 rgba(255, 255, 255, 0.48);*/
     z-index: 1;
 }
@@ -87,7 +87,7 @@ ul.navbar {
 
 .navbar li a:hover {
     background-color: rgb(68, 68, 68);
-    color: greenyellow;
+    color: #93D689;
     /*transform: scale(1.1);*/
 }
 
@@ -105,13 +105,13 @@ ul.navbar {
 
 a.a-std-intern-inline {
     text-decoration: none;
-    color: greenyellow;
+    color: #93D689;
     display: inline;
     cursor: pointer;
 }
 
 a.a-std-intern-inline:hover {
-    border-bottom: greenyellow dashed 2px;
+    border-bottom: #93D689 dashed 2px;
     padding-bottom: 1px;
 }
 
@@ -250,7 +250,7 @@ a.d-title-link {
 }
 
 a.d-title-link:hover {
-    color: rgba(132, 204, 25);
+    color: #93D689;
 }
 
 .comingSoon {
