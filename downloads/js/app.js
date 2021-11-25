@@ -24,14 +24,14 @@ function setup() {
 function draw() {
     if (content.version > 0) {
         //----------Head----------
-        document.getElementsByTagName("title")[0].innerHTML = "Downloads | " + content.title;
+        $("title").html("Downloads | " + content.title);
 
         //----------Description----------
-        document.getElementsByClassName("title")[0].innerHTML = content.title;
+        $(".title").html(content.title);
 
-        document.getElementsByClassName("text")[0].innerHTML = content.descriptionText;
+        $(".text").html(content.descriptionText);
 
-        document.getElementsByClassName("thumbnail-img")[0].setAttribute("src", content.imgPaths[0]);
+        $(".thumbnail-img").attr("src", content.imgPaths[0]);
 
         //----------Infobox----------
         let tableRows = document.getElementsByClassName("info-table")[0].getElementsByTagName("tr");
@@ -47,11 +47,13 @@ function draw() {
         tableRows[4].getElementsByTagName("td")[1].innerHTML = content.price;
 
         //----------Download button----------
-        document.getElementById("download-btn").blur();
+        $("#download-btn").blur();
 
-        let downloadInstruction = document.getElementsByClassName("download-instruction")[0];
+        let downloadInstruction = $(".download-instruction");
 
-        downloadInstruction.innerHTML = downloadInstruction.innerHTML.replace("[Title]", content.title);
-        downloadInstruction.innerHTML = downloadInstruction.innerHTML.replace("[OS]", content.operatingSystem);
+        downloadInstruction.html(downloadInstruction.html().replace("[Title]", content.title));
+        downloadInstruction.html(downloadInstruction.html().replace("[OS]", content.operatingSystem));
+
+        $("#download-btn").attr("href", content.downloadHREF);
     }
 }

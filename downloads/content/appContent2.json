@@ -1,0 +1,14 @@
+{
+    "version":"1",
+    "title":"Gravity Simulator",
+    "imgPaths":[
+        "https://via.placeholder.com/300"
+    ],
+    "descriptionText":"As my second passion is clearly physics, this has been a project of my heart for a very long time. Now it's finally there. At the moment there is no real user-interface, there is just a 2D-system of bodies which are applied with the most realistic gravitational forces I could make up. Have fun!",
+    "officialTitle":"Gravity Simulator",
+    "appVersion":"1.0.0",
+    "operatingSystem":"Windows OS 32-/64-bit",
+    "author":"The AweSam",
+    "price":"free",
+    "downloadHREF":"https://theawesam-hub.github.io/downloads/GravitySimulator-v1.0.0-32bit.zip"
+}

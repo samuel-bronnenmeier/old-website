@@ -9,5 +9,6 @@
     "appVersion":"1.0.1",
     "operatingSystem":"Windows OS 32-/64-bit",
     "author":"The AweSam",
-    "price":"free"
+    "price":"free",
+    "downloadHREF":"https://theawesam-hub.github.io/downloads/TicTacToe-v1.0.1-32bit.zip"
 }

@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-content: space-between;
     margin-top: 2em;
-    border: dashed white 1px;
+    /*border: dashed white 1px;*/
 }
 
 .title {
@@ -44,6 +44,7 @@ div.infobox {
     margin: auto;
     /*border: 1px dashed violet;*/
     width: auto;
+    min-width: fit-content;
 }
 
 .infobox table, td {
@@ -52,7 +53,7 @@ div.infobox {
 }
 
 td {
-    background-color: rgb(128, 202, 108);
+    background-color: #7ccd70;
     padding: 0.2em;
     color: white;
     text-align: center;
@@ -95,9 +96,9 @@ a#download-btn {
     font-size: 1.4em;
     border-radius: 5px;
     padding: 0.6em 0.9em;
-    background-color: rgb(128, 202, 108);
-    margin-bottom: 1em;
-    border: 2px dashed rgb(128, 202, 108);
+    background-color: #B67FAC;
+    margin-bottom: 4em;
+    border: 2px dashed #B67FAC;
     transition: background-color 0.7s ease, transform 0.3s ease;
     /*border: 1px solid red;*/
 }
@@ -112,16 +113,31 @@ a#download-btn:active {
     transform: scale(1.1);
 }
 
+/*-------------------------------------------------*/
+
 .installation-instructions {
     color: white;
-    border: 1px solid yellow;
+    /*border: 1px solid yellow;*/
 }
 
 .header {
     color: white;
     font-size: 2em;
     text-align: center;
-    border: 1px solid green;
+    /*border: 1px solid green;*/
+}
+
+ol.inst-content {
+    list-style: decimal outside;
+    color: white;
+    padding: 2em;
+    /*border: 1px dashed blue;*/
+}
+
+.inst-content li {
+    display: list-item;
+    padding: 1em;
+    font-size: 1.1em;
 }
 
 @media all and (max-width: 600px) {
