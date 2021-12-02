@@ -1,3 +1,33 @@
+/*!
+ * By @theawesam - https://theawesam-hub.github.io
+ * 
+ * License - MIT License
+ * 
+ * Copyright (c) 2021 Samuel Bronnenmeier
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+
+/*
+----------All----------
+*/
 * {
     padding: 0;
     margin: 0;
@@ -14,6 +44,7 @@ html, body {
     justify-content: space-between;
     align-items: center;
     /*border: 1px solid green;*/
+    margin-top: 4px;
 }
 
 a {
@@ -24,10 +55,14 @@ a {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 2.3em;
     text-decoration: none;
-    color: white;
-    padding: 8px;
+    /*color: rgb(163, 101, 226);*/
+    color: #B67FAC;
+    /*color: black;*/
+    /*background-color: rgb(243, 243, 243);*/
+    padding: 9px;
     margin: 0 0 0 .20em;
-    border: 1px solid greenyellow;
+    /*text-shadow: 0px 0px 20px rgb(233, 233, 233), 0px 0px 10px rgb(190, 190, 190);*/
+    /*box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.5), 0 6px 20px 0 rgba(255, 255, 255, 0.48);*/
     z-index: 1;
 }
 
@@ -47,26 +82,115 @@ ul.navbar {
     font-size: 16px;
     /*border: 1px solid rgb(248, 211, 1);*/
     letter-spacing: .15rem;
+    transition: background-color 0.6s, color 0.6s, transform 0.3s ease;
 }
 
 .navbar li a:hover {
-    color: greenyellow;
+    background-color: rgb(68, 68, 68);
+    color: #93D689;
+    /*transform: scale(1.1);*/
+}
+
+.navbar li a:active {
+    transform: scale(1.15);
+}
+
+.navbar li:first-of-type a {
+    border-radius: 5px 0 0 5px;
 }
 
 .active {
     font-weight: bold;
 }
 
+a.a-std-intern-inline {
+    text-decoration: none;
+    color: #93D689;
+    display: inline;
+    cursor: pointer;
+}
+
+a.a-std-intern-inline:hover {
+    border-bottom: #93D689 dashed 2px;
+    padding-bottom: 1px;
+}
+
+a.a-xs {
+    text-decoration: none;
+    color: #93D689;
+    font-size: 1.1em;
+    cursor: pointer;
+    padding-bottom: 2px;
+}
+
+a.a-xs:hover {
+    border-bottom: 1px dashed #93D689;
+    padding-bottom: 1px;
+}
+
+/*
+----------Home----------
+*/
+
+.main-wrapper {
+    margin-top: 1em;
+    border: 1px dashed green;
+}
+
+.title {
+    color: white;
+    font-size: 11em;
+    text-align: center;
+    justify-content: center;
+    line-height: 1.3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: 400% 400%;
+    background-image: linear-gradient(45deg, rgba(147, 214, 137, 0), rgba(147, 214, 137, 1), rgba(147, 214, 137, 0), rgba(147, 214, 137, 1));
+    animation: grad-anim 40s infinite linear;
+    /*border: 1px solid yellow;*/
+}
+
+@keyframes grad-anim {
+    0% {background-position: 100% 0%;}
+    100% {background-position: 15% 100%;}
+}
+
+.title .text {
+    font-size: 1em;
+}
+
+.under-title {
+    color: white;
+    font-size: 5em;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    letter-spacing: 0.04em;
+    /*border: 1px solid red;*/
+}
+
+footer {
+    color: white;
+    padding: 1em;
+    background-image: linear-gradient(to top, rgba(163, 95, 151, 1.0), rgba(163, 95, 151, 0));
+    /*border: 1px solid yellow;*/
+}
+
+footer a.footer-a {
+    margin-bottom: 0.7em;
+    display: block;
+    width: fit-content;
+}
+
 .support {
     height: auto;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+    width: auto;
     display: flex;
     flex-direction: row-reverse;
     z-index: 2;
-    /*border: 1px solid white;*/
+    /*border: 1px solid rgb(0, 0, 255);*/
 }
 
 .support a {
@@ -74,6 +198,7 @@ ul.navbar {
     align-self: flex-end;
     justify-content: flex-end;
     text-decoration: none;
+    margin-left: 0.3em;
     /*border: 1px solid yellow;*/
 }
 
@@ -82,6 +207,13 @@ ul.navbar {
     text-align: center;
     font-size: 1.3em;
 }
+
+.support-element:hover {
+    color: #93D689;
+}
+
+
+/*-------------Dodge!----------------*/
 
 #canvas-container {
     position: absolute;
@@ -108,6 +240,9 @@ canvas {
     /*border: 1px solid white;*/
 }
 
+/*
+----------About----------
+*/
 
 .a-box {
     display: block;
@@ -130,39 +265,74 @@ canvas {
     margin: 1em;
 }
 
-.d-item {
-    background-color: white;
-    padding: 2em;
-}
-
-.d-a {
-    color: black;
-    font-size: 1em;
-    margin: 0 1em;
-    padding: 1em 0;
-    text-decoration: none;
-}
-
-.d-a:hover {
-    text-decoration: underline;
-    color: rgba(132, 204, 25, 0.89);
-}
+/*
+----------Downloads----------
+*/
 
 .d-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
+    /*border: 1px solid purple;*/
+    /*width: auto;*/
+    margin-top: 10px;
+}
+
+div.d-item {
+    /*box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.19);*/
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: auto;
+    /*border: 1px solid greenyellow;*/
+    width: auto;
+    margin-bottom: 13em;
+}
+
+div.d-item:first-of-type {
+    margin-top: 5em;
+}
+
+div.d-item div.d-description {
+    color: rgb(202, 202, 202);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    /*border: 1px solid blue;*/
+    margin-left: 10px;
+}
+
+div.d-title {
+    font-size: 2em;
+    /*border: 1px solid yellowgreen;*/
+    display: block;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+a.d-title-link {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+a.d-title-link:hover {
+    color: #93D689;
 }
 
 .comingSoon {
     color: white;
     font-size: 1em;
     padding: 2em;
+    margin-top: 2em;
 }
 
-
+/*
+----------Responsive----------
+*/
 @media all and (max-width: 990px) {
     .flex-container {
         flex-direction: column;
@@ -182,8 +352,16 @@ canvas {
         width: 100%;
     }
 
-    .d-item {
-        width: 100%;
+    div.d-item {
+        margin-top: 10px;
+    }
+
+    div.d-description {
+        margin-left: 0;
+    }
+
+    ul.navbar li:first-of-type a {
+        border-radius: 0;
     }
 }
 
@@ -218,6 +396,10 @@ canvas {
 
     .a-image {
         align-self: center;
+    }
+
+    div.d-item {
+        flex-direction: column;
     }
 }
 

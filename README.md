@@ -21,3 +21,4 @@ Icons from fontawesome-free-5.15.3-web
 <a name="ProjectStatus"></a>
 ### Project Status
 The AI won't get any better so I started with the other pages. Keep your fingers crossed!
+I'm currently working on the websites for downloading my apps.
