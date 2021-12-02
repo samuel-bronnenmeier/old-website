@@ -27,7 +27,7 @@ function draw() {
         $("title").html("Downloads | " + content.title);
 
         //----------Description----------
-        $(".title").html(content.title);
+        $(".std-title").html(content.title);
 
         $(".text").html(content.descriptionText);
 
