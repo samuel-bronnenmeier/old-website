@@ -115,6 +115,19 @@ a.a-std-intern-inline:hover {
     padding-bottom: 1px;
 }
 
+a.a-xs {
+    text-decoration: none;
+    color: #93D689;
+    font-size: 1.1em;
+    cursor: pointer;
+    padding-bottom: 2px;
+}
+
+a.a-xs:hover {
+    border-bottom: 1px dashed #93D689;
+    padding-bottom: 1px;
+}
+
 /*
 ----------Home----------
 */
@@ -133,22 +146,42 @@ a.a-std-intern-inline:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(#B67FAC, #93D689);
+    background-size: 400% 400%;
+    background-image: linear-gradient(45deg, rgba(147, 214, 137, 0), rgba(147, 214, 137, 1), rgba(147, 214, 137, 0), rgba(147, 214, 137, 1));
+    animation: grad-anim 40s infinite linear;
     /*border: 1px solid yellow;*/
 }
 
-.help-grad {
-    background-image: linear-gradient(#92D588, #333);
-    height: 5em;
-    display: block;
-    /*border: 1px solid orange;*/
+@keyframes grad-anim {
+    0% {background-position: 100% 0%;}
+    100% {background-position: 15% 100%;}
+}
+
+.title .text {
+    font-size: 1em;
 }
 
 .under-title {
     color: white;
     font-size: 5em;
     text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    letter-spacing: 0.04em;
     /*border: 1px solid red;*/
+}
+
+footer {
+    color: white;
+    padding: 1em;
+    background-image: linear-gradient(to top, rgba(163, 95, 151, 1.0), rgba(163, 95, 151, 0));
+    /*border: 1px solid yellow;*/
+}
+
+footer a.footer-a {
+    margin-bottom: 0.7em;
+    display: block;
+    width: fit-content;
 }
 
 .support {
@@ -173,6 +206,10 @@ a.a-std-intern-inline:hover {
     color: white;
     text-align: center;
     font-size: 1.3em;
+}
+
+.support-element:hover {
+    color: #93D689;
 }
 
 
