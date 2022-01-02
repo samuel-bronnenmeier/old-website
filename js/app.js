@@ -27,17 +27,25 @@ $(document).ready(function() {
     init();
 
     //Fade in the title
-    //$(".title").html("<span class='text'>I have the solution.</span>");
     $(".title .text").hide();
 
-    //$(".under-title").html("<span class='text'>It just doesn't fit the problem...</span>");
-    $(".under-title .text").css("visibility", "hidden");
+    $(".under-title .text").css("opacity", 0);
 
-    $(".title .text").fadeIn(2300, function() {
+    $(".title .text").fadeIn(2300);
 
-        $(".under-title .text").css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0}, 2000);
+    //$(".under-title .text").css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0}, 2000);
+    const underTitle = document.querySelector(".under-title .text");
 
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle("show", entry.isIntersecting);
+            if (entry.isIntersecting) observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 1,
     });
+
+    observer.observe(underTitle);
 });
 
 $(window).resize(function () {

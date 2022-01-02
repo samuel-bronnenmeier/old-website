@@ -10,5 +10,6 @@
     "operatingSystem":"Windows OS 32-/64-bit",
     "author":"The AweSam",
     "price":"free",
-    "downloadHREF":"https://theawesam-hub.github.io/downloads/TicTacToe-v1.0.1-32bit.zip"
+    "downloadHREF":"https://theawesam-hub.github.io/downloads/TicTacToe-v1.0.1-32bit.zip",
+    "srcHREF":"https://github.com/theawesam-hub/TicTacToe/tree/master"
 }

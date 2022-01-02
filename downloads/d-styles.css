@@ -1,9 +1,14 @@
+body {
+    scroll-behavior: smooth;
+}
+
 .main-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-content: space-between;
     margin-top: 2em;
+    scroll-behavior: smooth;
     /*border: dashed white 1px;*/
 }
 

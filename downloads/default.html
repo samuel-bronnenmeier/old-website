@@ -42,29 +42,35 @@
                     <table class="info-table">
                         <tr info="officialTitle">
                             <td>Title</td>
-                            <td>[value]</td>
+                            <td>{value}</td>
                         </tr>
                         <tr info="appVersion">
                             <td>Version</td>
-                            <td>[value]</td>
+                            <td>{value}</td>
                         </tr>
                         <tr info="operatingSystem">
                             <td>Operating System</td>
-                            <td>[value]</td>
+                            <td>{value}</td>
                         </tr>
                         <tr info="author">
                             <td>Author</td>
-                            <td>[value]</td>
+                            <td>{value}</td>
                         </tr>
                         <tr info="price">
                             <td>Price</td>
-                            <td>[value]</td>
+                            <td>{value}</td>
                         </tr>
                     </table>
                     <a href="#download-btn" class="goToLink">Go to download</a>
                 </div>
             </div>
-            <div class="download-instruction">Click the following button to download a ".zip" containing [Title] for [OS]. Then follow the <a class="a-std-intern-inline" href="#installation-instructions">installation instructions</a>.</div>
+            <div class="download-instruction">Click the following button to download a ".zip" containing {Title} for {OS}. 
+                Then follow the 
+                <a class="a-std-intern-inline" href="#installation-instructions">installation instructions</a>.<br />
+                If you want to build it yourself or just want to see the source code, click 
+                <a class="a-std-intern-inline" href="#" id="src">here</a> 
+                for the Github repository.
+            </div>
             <a id="download-btn" href="#">Download</a>
 
             <div id="installation-instructions">

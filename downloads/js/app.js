@@ -38,10 +38,12 @@ $(document).ready(function () {
     
             let downloadInstruction = $(".download-instruction");
     
-            downloadInstruction.html(downloadInstruction.html().replace("[Title]", content.title));
-            downloadInstruction.html(downloadInstruction.html().replace("[OS]", content.operatingSystem));
+            downloadInstruction.html(downloadInstruction.html().replace("{Title}", content.title));
+            downloadInstruction.html(downloadInstruction.html().replace("{OS}", content.operatingSystem));
     
             $("#download-btn").attr("href", content.downloadHREF);
+
+            $("#src").attr("href", content.srcHREF);
 
         }
 
